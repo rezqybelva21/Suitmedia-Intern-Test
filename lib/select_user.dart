@@ -37,7 +37,12 @@ class SelectUser extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         elevation: 1,
-        iconTheme: IconThemeData(color: Colors.blue),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.blue),
+          onPressed: () {
+            Get.back();
+          },
+        ),
         centerTitle: true,
       ),
       body: FutureBuilder<List<dynamic>>(
