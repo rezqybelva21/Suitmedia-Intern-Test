@@ -67,39 +67,44 @@ class HomePage extends StatelessWidget {
 
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(onPressed: () {
-                      String text = palindromeController.text;
-                      String normalized = text
-                        .toLowerCase()
-                        .replaceAll(RegExp(r'[^a-z]'), '');
-                      String reversed = normalized.split('').reversed.join();
-                      bool isPalindrome = normalized == reversed;
+                    child: ElevatedButton(
+                      onPressed: () {
+                        String text = palindromeController.text.trim();
+                        String normalized = text
+                            .toLowerCase()
+                            .replaceAll(RegExp(r'[^a-z]'), '');
+                        String reversed = normalized.split('').reversed.join();
+                        bool isPalindrome = normalized == reversed;
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                            content: Text(
-                              isPalindrome ? "It's a palindrome!" : "Not a palindrome.",
-                            ),
+                        Get.snackbar(
+                          "Palindrome Check",
+                          isPalindrome ? "It's a palindrome!" : "Not a palindrome.",
+                          snackPosition: SnackPosition.BOTTOM,
+                          backgroundColor: isPalindrome ? Colors.green : Colors.redAccent,
+                          colorText: Colors.white,
+                          margin: const EdgeInsets.all(12),
+                          borderRadius: 8,
+                          duration: const Duration(seconds: 2),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        backgroundColor: const Color(0xFF2D7F9D),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                      );
-                    },
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                          backgroundColor: Color(0xFF2D7F9D),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          )
+                      ),
+                      child: const Text(
+                        "CHECK",
+                        style: TextStyle(
+                          color: Colors.white,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
                         ),
-                        child: Text(
-                            "CHECK",
-                            style: TextStyle(
-                              color: Colors.white,
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.bold,
-                            )
-                        ),
+                      ),
                     ),
                   ),
+
                   SizedBox(height: 15),
 
                   SizedBox(

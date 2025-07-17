@@ -13,4 +13,8 @@ class UserController extends GetxController {
     this.email.value = newEmail;
     this.avatar.value = newAvatar;
   }
+
+  void setInitialUsername(String username) {
+    initialUsername.value = username;
+  }
 }
