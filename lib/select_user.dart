@@ -69,7 +69,6 @@ class SelectUser extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(user['email']),
-                trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 onTap: () {
                   userController.setUser(
                     '${user['first_name']} ${user['last_name']}',

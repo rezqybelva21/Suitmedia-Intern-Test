@@ -36,7 +36,7 @@ class WelcomePage extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Obx(() => Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -46,8 +46,8 @@ class WelcomePage extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Text(
+                  const SizedBox(height: 4),
+                  Obx(() => Text(
                     userController.name.value.isNotEmpty
                         ? userController.name.value
                         : 'No User Selected',
@@ -57,13 +57,14 @@ class WelcomePage extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
+              ),
                 ],
-              )),
+              ),
             ),
 
             Expanded(
               child: Center(
-                child: Obx(() => Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(height: 10),
@@ -74,7 +75,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )),
+                ),
               ),
             ),
 
